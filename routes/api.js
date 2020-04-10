@@ -20,19 +20,19 @@ router.delete('/users/:id', ctrl.users.destroy);
 
 
 // -------------------- UPLOAD ROUTES
-// router.get('/uploads', ctrl.uploads.index);
-// router.get('/uploads/:uploadId', ctrl.uploads.show);
-// router.put('/uploads/:uploadId', ctrl.uploads.update);
-// router.post('/uploads', ctrl.uploads.create);
-// router.delete('/uploads/:uploadId', ctrl.uploads.destroy);
+router.get('/uploads', ctrl.uploads.index);
+router.get('/uploads/:uploadId', ctrl.uploads.show);
+router.put('/uploads/:uploadId', ctrl.uploads.update);
+router.post('/uploads', ctrl.uploads.create);
+router.delete('/uploads/:uploadId', ctrl.uploads.destroy);
 
 
 // -------------------- FEEDBACK ROUTES
-// router.get('/uploads/:uploadId/feedback', ctrl.feedback.index);
-// router.get('/uploads/:uploadId/feedback/:feedbackId', ctrl.feedback.show);
-// router.put('/uploads/:uploadId/feedback/:feedbackId', ctrl.feedback.update);
-// router.post('/uploads/:uploadId/feedback', ctrl.feedback.create);
-// router.delete('/uploads/:uploadId/feedback/:feedbackId', ctrl.feedback.destroy);
+router.get('/uploads/:uploadId/feedback', ctrl.feedback.index);
+router.get('/uploads/:uploadId/feedback/:feedbackId', ctrl.feedback.show);
+router.put('/uploads/:uploadId/feedback/:feedbackId', ctrl.feedback.update);
+router.post('/uploads/:uploadId/feedback', ctrl.feedback.create);
+router.delete('/uploads/:uploadId/feedback/:feedbackId', ctrl.feedback.destroy);
 
 
 module.exports = router;
