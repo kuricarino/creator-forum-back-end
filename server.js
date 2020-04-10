@@ -21,7 +21,6 @@ const routes = require('./routes');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
 app.use((req, res, next) => {
     const url = req.url;
     const method = req.method;
@@ -36,18 +35,6 @@ app.use((req, res, next) => {
 // app.get("/greetings/:name", (request, response) => {
 //     response.send( "Hello, " + request.params.name );
 // });
-
-// app.use(session({
-//     store: new MongoStore({
-//         url: process.env.MONGODB_URI || 'mongodb://localhost:27017/creator-forum',
-//     }),
-//     secret: process.env.SESSION_SECRET,
-//     resave: false,
-//     saveUnitialized: false,
-//     cookie: {
-//         maxAge: 1209600000, // 1000 * 60 * 60 * 24 * 7 * 2 => 2 weeks
-//     },
-// }));
 
 // -------------------- ROUTES
 app.use("/api/v1", routes.api);
