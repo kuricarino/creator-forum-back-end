@@ -1,9 +1,9 @@
 const express = require('express');
+const verifyToken = require('../middleware/verification');
 const router = express.Router();
 const ctrl = require("../controllers");
 
-// api/v1...
-
+// api/v1
 // -------------------- USER ROUTES
 router.get('/users', ctrl.users.index);
 router.get('/users/:id', ctrl.users.show);
@@ -12,7 +12,7 @@ router.put('/users/:id', ctrl.users.update);
 router.delete('/users/:id', ctrl.users.destroy);
 
 
-// -------------------- AUTH ROUTES
+// -------------------- AUTH ROUTES if used sessions
 // router.post('/register', ctrl.auth.register);
 // router.post('/login', ctrl.auth.login);
 // router.delete('/logout', ctrl.auth.logout);
@@ -20,7 +20,7 @@ router.delete('/users/:id', ctrl.users.destroy);
 
 
 // -------------------- UPLOAD ROUTES
-router.get('/uploads', ctrl.uploads.index);
+router.get('/uploads', verifyToken, ctrl.uploads.index);
 router.get('/uploads/:uploadId', ctrl.uploads.show);
 router.put('/uploads/:uploadId', ctrl.uploads.update);
 router.post('/uploads', ctrl.uploads.create);

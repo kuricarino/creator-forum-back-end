@@ -33,7 +33,7 @@ const uploads = [
     private: true, // allows user to toggle (show or hide username)
     title: "Cavernous mountain",
     category: "Videography", // may reference Category model as stretch-goal
-    link: "link@link.com",
+    link: "link2@link2.com",
     body: "Short video about a hike through the mountains.",
 },
 ];

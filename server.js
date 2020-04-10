@@ -2,19 +2,23 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
+// PORT
 const PORT = process.env.PORT || 4000;
+// ROUTES
 const routes = require('./routes');
-// const cors = require('cors'); // may or may not need
+
+require('dotenv').config();
+
+const corsOptions = {
+    origin: ["http://localhost:3000"],
+    methods: "GET, POST, PUT, DELETE", // only these methods are allowed
+    credentials: true, // allows session cookies to be sent back and forth between client and server
+    optionsSuccessStatus: 200 // only for legacy browsers (they fail if you send 204 back)  
+};
 
 // -------------------- MIDDLEWARE
-// const corsOptions = {
-//     origin: ["http://localhost:3000"],
-//     methods: "GET, POST, PUT, DELETE", // only these methods are allowed
-//     credentials: true, // allows session cookies to be sent back and forth between client and server
-//     optionsSuccessStatus: 200 // only for legacy browsers as they fail if you send 204 back  
-// };
-
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -35,7 +39,9 @@ app.use((req, res, next) => {
 // });
 
 // -------------------- ROUTES
-app.use("/api/v1", routes.api);
+
+app.use('/api/v1', routes.auth);
+app.use('/api/v1', routes.api);
 
 // wrong api route
 app.use('api/*', (req, res) => {
