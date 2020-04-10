@@ -32,7 +32,7 @@ const update = (req, res) => {
     });
 };
 
-const destory = (req, res) => {
+const destroy = (req, res) => {
     db.Feedback.findByIdAndDelete(req.params.feedbackId, (err, deletedFeedback) => {
         if (err) return res.status(404).json({ status: 404, error: 'Cannot find and delete feedback with that id.' });
 
