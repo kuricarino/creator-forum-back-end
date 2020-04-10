@@ -1,8 +1,6 @@
 // -------------------- REQUIREMENTS
 const express = require('express');
 const app = express();
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 4000;
 const routes = require('./routes');
