@@ -52,7 +52,7 @@ const seedUsers = async () => {
       user = await db.User.create(user);
     }
     console.log('Seeded users.');
-    // returns the last user's ID so it can map this user to every doggo later
+    // returns the last user's ID so it can map this user to every upload later
     return user._id;
   } catch (err) {
     console.log(err);
@@ -62,7 +62,7 @@ const seedUsers = async () => {
 
 const seedDatabase = async () => {
   try {
-    // gets the user ID back from seedUsers so it can attach this to every doggo as a User ref
+    // gets the user ID back from seedUsers so it can attach this to every upload as a User ref
     let userId = await seedUsers();
     uploads.forEach(upload => upload.user = userId);
     await db.Upload.deleteMany({});
@@ -70,7 +70,7 @@ const seedDatabase = async () => {
 
     let createdUploads = await db.Upload.create(uploads);
     console.log(`Created ${createdUploads.length} uploads.`);
-    
+
     process.exit();
   } catch (err) {
     console.log(err);
