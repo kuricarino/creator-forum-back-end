@@ -17,6 +17,7 @@ const show = (req, res) => {
 };
 
 const create = (req, res) => {
+    console.log(req.body);
     db.Feedback.create(req.body, (err, newFeedback) => {
         if (err) return res.status(404).json({ status: 404, error: 'Cannot create new feedback.' });
 

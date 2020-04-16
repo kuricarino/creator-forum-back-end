@@ -2,7 +2,7 @@ const db = require('../models');
 
 const index = (req, res) => {
     db.Upload.find({})
-    .populate('user', '_id firstName lastName username photo')
+    .populate('user', '_id private firstName lastName username photo')
     .populate('feedback', '_id private body')
     .exec((err, foundUploads) => {
         if (err) return res.status(404).json({ status: 404, error: 'Cannot find all posts.' });
@@ -13,7 +13,7 @@ const index = (req, res) => {
 
 const show = (req, res) => {
     db.Upload.findById(req.params.uploadId)
-    .populate('user', '_id firstName lastName username photo')
+    .populate('user', '_id private firstName lastName username photo')
     .populate('feedback', '_id private body')
     .exec((err, foundUpload) => {
         if (err) return res.status(404).json({ status: 404, error: 'Cannot find a post with that id.'});

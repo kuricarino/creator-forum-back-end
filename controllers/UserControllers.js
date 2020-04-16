@@ -25,7 +25,7 @@ const create = (req, res) => {
 };
 
 const update = (req, res) => {
-    db.User.findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, updatedUser) => {
+    db.User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedUser) => {
         if (err) return res.status(404).json({ status: 404, error: 'Cannot find user by that id and therefore cannot update' });
 
         res.json(updatedUser);

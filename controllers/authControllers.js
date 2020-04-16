@@ -5,7 +5,10 @@ const jwt = require('jsonwebtoken');
 const register = (req, res) => {
     // check if username or pw is empty
     const newUser = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         username: req.body.username,
+        email: req.body.email,
         password: req.body.password
     }
     // if empty, send error
@@ -60,7 +63,10 @@ const register = (req, res) => {
 
 const login = (req, res) => {
     const user = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         username: req.body.username,
+        email: req.body.email,
         password: req.body.password
     }
 
