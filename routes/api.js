@@ -34,11 +34,4 @@ router.put('/uploads/:uploadId/feedback/:feedbackId', ctrl.feedback.update);
 router.post('/uploads/:uploadId/feedback', ctrl.feedback.create);
 router.delete('/uploads/:uploadId/feedback/:feedbackId', ctrl.feedback.destroy);
 
-// router.get('/uploads/:uploadId', ctrl.feedback.index);
-// router.get('/uploads/:uploadId/feedback/:feedbackId', ctrl.feedback.show);
-// router.put('/uploads/:uploadId/feedback/:feedbackId', ctrl.feedback.update);
-// router.post('/feedback', ctrl.feedback.create);
-// router.delete('/uploads/:uploadId/feedback/:feedbackId', ctrl.feedback.destroy);
-
-
 module.exports = router;
